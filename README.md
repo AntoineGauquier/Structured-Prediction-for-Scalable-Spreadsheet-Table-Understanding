@@ -239,7 +239,7 @@ docker run --rm \
         --feature-cache /data/results/feature_cache"
 ```
 
-#### CRF-GBM - [`models/lgbm_crf.py`](cell-type-classification/models/lgbm_crf.py)
+#### CRF-LightGBM - [`models/lgbm_crf.py`](cell-type-classification/models/lgbm_crf.py)
 
 Same two-stage pipeline as CRF-RF, but uses LightGBM (with the best hyperparameters from the standalone LightGBM baseline) as the first-stage classifier.
 
