@@ -95,7 +95,179 @@ To keep annotation grids tractable for large, sparse sheets, a **compression ste
 
 ## Cell-Type Classification
 
-TBD, provided in [`cell-type-classification/`](cell-type-classification/).
+Code and baselines are provided in [`cell-type-classification/`](cell-type-classification/). Each method assigns one of the five following types to each cell: `EMPTY`, `HEADER`, `DATA`, `TITLE`, or `OTHER`.
+
+### Features
+
+Features are extracted at two granularities:
+
+- **Unary features** ([`features/unary_features.py`](cell-type-classification/features/unary_features.py)): per-cell features covering content type (empty, numeric, string, date, formula), text statistics, positional encoding, and spreadsheet formatting (font style, size, color, borders, alignment).
+- **Pairwise features** ([`features/pairwise_features.py`](cell-type-classification/features/pairwise_features.py)): 30 features for each pair of 4-connected neighboring cells, encoding content-type compatibility, formatting similarity, and relative position.
+
+### Docker environment
+
+The CRF baselines depend on [pystruct](https://github.com/pystruct/pystruct), which requires Python 3.8 and needs two fixes before it can run:
+
+1. **Build fix**: pystruct's `setup.py` uses the deprecated `use_2to3` flag, which breaks installation under Python 3. The Dockerfile patches this out with `sed` before building pystruct from source.
+2. **Runtime patch**: `pystruct.models.utils` is missing from some pystruct builds (the module is referenced at runtime but not always installed). The Dockerfile injects a minimal re-implementation via `PYTHONSTARTUP` that provides the two missing symbols (`loss_augment_unaries`, `crammer_singer_joint_feature`).
+
+Both fixes are applied automatically inside the Docker image. **All baselines should be run inside this container** to ensure the correct Python 3.8 environment and the patched pystruct.
+
+Build the image from the `cell-type-classification/` directory:
+
+```bash
+docker build -t ctc-baselines cell-type-classification/
+```
+
+Then run any baseline by mounting the dataset and a results directory:
+
+```bash
+docker run --rm \
+    -v $(pwd)/dataset:/data/dataset \
+    -v $(pwd)/results:/data/results \
+    ctc-baselines \
+    bash -c "cd /opt && python -m cell_type_classification.models.<script> <subcommand> \
+        --dataset /data/dataset/manifest.csv \
+        --output   /data/results/<output_dir> \
+        --feature-cache /data/results/feature_cache"
+```
+
+The `--feature-cache` flag is strongly recommended: it caches the extracted features to disk so they are not recomputed for every fold. All scripts support it.
+
+### Baselines
+
+All reproduction scripts use a fixed 5-fold cross-validation with `seed=2112`, matching the fold split used for the initial experiments. If you want to replicate the experiments, **do not change the seed value**, otherwise a different fold split will be computed. 
+
+#### RF and RF-Koci - [`models/rf.py`](cell-type-classification/models/rf.py)
+
+Two variants: **RF** trains on the full unary feature set; **RF-Koci** uses the reduced feature subset presented in the paper. Select the variant with `--variant rf` or `--variant rf-koci`.
+
+```bash
+# Training
+docker run --rm \
+    -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
+    ctc-baselines \
+    bash -c "cd /opt && python -m cell_type_classification.models.rf train \
+        --dataset /data/dataset/manifest.csv \
+        --output  /data/results/rf \
+        --variant rf --save-fold-models \
+        --feature-cache /data/results/feature_cache"
+
+# Inference
+docker run --rm \
+    -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
+    ctc-baselines \
+    bash -c "cd /opt && python -m cell_type_classification.models.rf infer \
+        /data/results/rf \
+        --variant rf \
+        --output  /data/results/rf_grids \
+        --feature-cache /data/results/feature_cache"
+```
+
+#### LightGBM - [`models/lgbm.py`](cell-type-classification/models/lgbm.py)
+
+```bash
+# Training
+docker run --rm \
+    -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
+    ctc-baselines \
+    bash -c "cd /opt && python -m cell_type_classification.models.lgbm train \
+        --dataset /data/dataset/manifest.csv \
+        --output  /data/results/lgbm \
+        --save-fold-models \
+        --feature-cache /data/results/feature_cache"
+
+# Inference
+docker run --rm \
+    -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
+    ctc-baselines \
+    bash -c "cd /opt && python -m cell_type_classification.models.lgbm infer \
+        /data/results/lgbm \
+        --output /data/results/lgbm_grids \
+        --feature-cache /data/results/feature_cache"
+```
+
+#### CRF-Linear - [`models/crf_linear.py`](cell-type-classification/models/crf_linear.py)
+
+Operates directly on raw unary features (no upstream classifier projection). Two design choices distinguish it from the CRF-RF/GBM variants: sqrt-inverse global class weighting and hard EMPTY constraints. Both are on by default (paper configuration) and can be disabled via CLI flags for ablation studies.
+
+```bash
+# Training
+docker run --rm \
+    -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
+    ctc-baselines \
+    bash -c "cd /opt && python -m cell_type_classification.models.crf_linear train \
+        --dataset /data/dataset/manifest.csv \
+        --output  /data/results/crf_linear \
+        --save-fold-models \
+        --C 0.1 --batch-size 128 \
+        --feature-cache /data/results/feature_cache"
+
+# Inference
+docker run --rm \
+    -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
+    ctc-baselines \
+    bash -c "cd /opt && python -m cell_type_classification.models.crf_linear infer \
+        /data/results/crf_linear \
+        --output /data/results/crf_linear_grids \
+        --feature-cache /data/results/feature_cache"
+```
+
+#### CRF-RF - [`models/rf_crf.py`](cell-type-classification/models/rf_crf.py)
+
+Two-stage pipeline: a fresh RF is trained on each fold's training cells, its `predict_proba` output (one probability per class) replaces the raw unary features, and the CRF is then trained on those projected features. Pairwise features are unchanged.
+
+```bash
+# Training
+docker run --rm \
+    -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
+    ctc-baselines \
+    bash -c "cd /opt && python -m cell_type_classification.models.rf_crf train \
+        --dataset /data/dataset/manifest.csv \
+        --output  /data/results/rf_crf \
+        --save-fold-models \
+        --C 10 --batch-size 32 \
+        --feature-cache /data/results/feature_cache"
+
+# Inference
+docker run --rm \
+    -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
+    ctc-baselines \
+    bash -c "cd /opt && python -m cell_type_classification.models.rf_crf infer \
+        /data/results/rf_crf \
+        --output /data/results/rf_crf_grids \
+        --feature-cache /data/results/feature_cache"
+```
+
+#### CRF-GBM - [`models/lgbm_crf.py`](cell-type-classification/models/lgbm_crf.py)
+
+Same two-stage pipeline as CRF-RF, but uses LightGBM (with the best hyperparameters from the standalone LightGBM baseline) as the first-stage classifier.
+
+```bash
+# Training
+docker run --rm \
+    -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
+    ctc-baselines \
+    bash -c "cd /opt && python -m cell_type_classification.models.lgbm_crf train \
+        --dataset /data/dataset/manifest.csv \
+        --output  /data/results/lgbm_crf \
+        --save-fold-models \
+        --C 10 --batch-size 32 \
+        --feature-cache /data/results/feature_cache"
+
+# Inference
+docker run --rm \
+    -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
+    ctc-baselines \
+    bash -c "cd /opt && python -m cell_type_classification.models.lgbm_crf infer \
+        /data/results/lgbm_crf \
+        --output /data/results/lgbm_crf_grids \
+        --feature-cache /data/results/feature_cache"
+```
+
+#### TUTA
+
+We fine-tune [TUTA](https://github.com/microsoft/TUTA_table_understanding) on our five cell-type classes by unfreezing its two last transformer layers and the classification head, using the same 5-fold cross-validation. See the paper for more details.
 
 ---
 
