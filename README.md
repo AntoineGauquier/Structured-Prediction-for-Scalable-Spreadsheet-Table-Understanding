@@ -48,7 +48,7 @@ The sheets were collected from 14 publicly available sources spanning diverse co
 | `worldbank_spreadsheets` | World Bank | International | 54 |
 | | **Total** | | **737** |
 
-Spreadsheets are provided in their original formats: `.xlsx`, `.xls`, `.ods`, and `.csv` (that can have both `,` and `;` as separators).
+Spreadsheets are provided in their original formats: `.xlsx`, `.xls`, `.ods`, and `.csv` (that can have `,`, `\t`, and `;` as separators).
 
 ### Dataset structure
 
