@@ -1,0 +1,7 @@
+{
+  "file_path": "spreadsheets/t_6425__52.xls",
+  "sheet_name": "Sheet1",
+  "labels_path": "new_annotations/annotations_d654af54-0b37-40ca-8c84-c98e8ccc75be.npz",
+  "error": "\"Sheet 'Sheet1' not found. Available: ['Sheet 1']\"",
+  "traceback": "Traceback (most recent call last):\n  File \"/local/angauqui/spreadsheet_llm/fine_tuning_original_sheet_compressor/run_kfold.py\", line 200, in run_fold\n    res = process_row(\n          ^^^^^^^^^^^^\n  File \"/local/angauqui/spreadsheet_llm/fine_tuning_original_sheet_compressor/run_kfold.py\", line 85, in process_row\n    sheet_data, gt_ranges = load_item(row, data_dir)\n                            ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/local/angauqui/spreadsheet_llm/fine_tuning_original_sheet_compressor/data_loader.py\", line 118, in load_item\n    sheet_data = load_spreadsheet(fp, sheet_name=name, mime_type=mime)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/local/angauqui/spreadsheet_llm/fine_tuning_original_sheet_compressor/spreadsheet_io.py\", line 95, in load_spreadsheet\n    return _load_xls(path, sheet_name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/local/angauqui/spreadsheet_llm/fine_tuning_original_sheet_compressor/spreadsheet_io.py\", line 212, in _load_xls\n    raise KeyError(\nKeyError: \"Sheet 'Sheet1' not found. Available: ['Sheet 1']\"\n"
+}

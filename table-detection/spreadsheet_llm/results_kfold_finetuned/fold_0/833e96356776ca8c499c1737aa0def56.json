@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/SLE_CPI_Weights-2013__74.xls",
+  "sheet_name": "Sheet1",
+  "labels_path": "new_annotations/annotations_1f32cb3c-5550-473a-95b0-60e75d02b234.npz",
+  "n_rows": 26,
+  "n_cols": 4,
+  "k_anchor": 4,
+  "compressed_tokens": 128,
+  "gt_ranges": [
+    "A6:C22"
+  ],
+  "predicted_ranges": [
+    "A6:C22"
+  ],
+  "predicted_ranges_compressed": [
+    "A5:C13"
+  ],
+  "range_corners_merged": false,
+  "no_valid_prediction": false,
+  "llm_response": "A5:C13",
+  "llm_tokens": 640,
+  "llm_elapsed": 0.128,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.137,
+  "error": null
+}

@@ -1,0 +1,6 @@
+# td.py runtime dependencies
+numpy>=1.21
+scipy>=1.7
+
+# plot_generator.py
+matplotlib>=3.5

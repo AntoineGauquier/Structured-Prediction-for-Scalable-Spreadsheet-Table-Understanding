@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/bmi_girls_2-to-5-years_zscores__36.xlsx",
+  "sheet_name": "bmi_girls_2 to 5 years_zscores",
+  "labels_path": "new_annotations/annotations_ff0198d4-9e64-4daa-9b8c-6089f9bfa420.npz",
+  "n_rows": 38,
+  "n_cols": 11,
+  "k_anchor": 4,
+  "compressed_tokens": 172,
+  "gt_ranges": [
+    "A1:K38"
+  ],
+  "predicted_ranges": [
+    "A1:K38"
+  ],
+  "predicted_ranges_compressed": [
+    "A1:J10"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "]['Range' 'A1:J10']",
+  "llm_tokens": 1015,
+  "llm_elapsed": 0.22,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.245,
+  "error": null
+}

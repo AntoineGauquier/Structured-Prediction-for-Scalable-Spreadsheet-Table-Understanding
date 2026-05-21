@@ -93,6 +93,37 @@ To keep annotation grids tractable for large, sparse sheets, a **compression ste
 
 ---
 
+## Requirements
+
+### CTC and Table Detection (Docker)
+
+CTC baselines depend on [pystruct](https://github.com/pystruct/pystruct), which requires Python 3.8 and two fixes handled automatically by the Dockerfile in [`cell-type-classification/`](cell-type-classification/Dockerfile):
+
+1. **Build fix**: pystruct's `setup.py` uses the deprecated `use_2to3` flag; the Dockerfile patches this out before building from source.
+2. **Runtime fix**: `pystruct.models.utils` is missing from some pystruct builds; the Dockerfile injects a minimal re-implementation of the two required symbols.
+
+All CTC and Table Detection experiments run inside this image. Build it once from the repository root:
+
+```bash
+docker build -t ctc-baselines cell-type-classification/
+```
+
+### SpreadsheetLLM (GPU environment)
+
+Fine-tuning and inference require a CUDA-capable GPU and Python ≥ 3.10. Install from the `table-detection/` directory:
+
+```bash
+pip install -r table-detection/spreadsheet_llm/requirements.txt
+```
+
+### Plotting 
+
+```bash
+pip install -r table-detection/requirements.txt
+```
+
+---
+
 ## Cell-Type Classification
 
 Code and baselines are provided in [`cell-type-classification/`](cell-type-classification/). Each method assigns one of the five following types to each cell: `EMPTY`, `HEADER`, `DATA`, `TITLE`, or `OTHER`.
@@ -104,39 +135,11 @@ Features are extracted at two granularities:
 - **Unary features** ([`features/unary_features.py`](cell-type-classification/features/unary_features.py)): per-cell features covering content type (empty, numeric, string, date, formula), text statistics, positional encoding, and spreadsheet formatting (font style, size, color, borders, alignment).
 - **Pairwise features** ([`features/pairwise_features.py`](cell-type-classification/features/pairwise_features.py)): 30 features for each pair of 4-connected neighboring cells, encoding content-type compatibility, formatting similarity, and relative position.
 
-### Docker environment
-
-The CRF baselines depend on [pystruct](https://github.com/pystruct/pystruct), which requires Python 3.8 and needs two fixes before it can run:
-
-1. **Build fix**: pystruct's `setup.py` uses the deprecated `use_2to3` flag, which breaks installation under Python 3. The Dockerfile patches this out with `sed` before building pystruct from source.
-2. **Runtime patch**: `pystruct.models.utils` is missing from some pystruct builds (the module is referenced at runtime but not always installed). The Dockerfile injects a minimal re-implementation via `PYTHONSTARTUP` that provides the two missing symbols (`loss_augment_unaries`, `crammer_singer_joint_feature`).
-
-Both fixes are applied automatically inside the Docker image. **All baselines should be run inside this container** to ensure the correct Python 3.8 environment and the patched pystruct.
-
-Build the image from the `cell-type-classification/` directory:
-
-```bash
-docker build -t ctc-baselines cell-type-classification/
-```
-
-Then run any baseline by mounting the dataset and a results directory:
-
-```bash
-docker run --rm \
-    -v $(pwd)/dataset:/data/dataset \
-    -v $(pwd)/results:/data/results \
-    ctc-baselines \
-    bash -c "cd /opt && python -m cell_type_classification.models.<script> <subcommand> \
-        --dataset /data/dataset/manifest.csv \
-        --output   /data/results/<output_dir> \
-        --feature-cache /data/results/feature_cache"
-```
-
-The `--feature-cache` flag is strongly recommended: it caches the extracted features to disk so they are not recomputed for every fold. All scripts support it.
-
 ### Baselines
 
-All reproduction scripts use a fixed 5-fold cross-validation with `seed=2112`, matching the fold split used for the initial experiments. If you want to replicate the experiments, **do not change the seed value**, otherwise a different fold split will be computed. 
+All reproduction scripts use a fixed 5-fold cross-validation with `seed=2112`, matching the fold split used for the initial experiments. **Do not change the seed value**, otherwise a different fold split will be computed.
+
+Pass `--feature-cache /data/results/feature_cache` to every command. This caches extracted features across folds and is also required by `td.py` (see Table Detection). All commands are run from the repository root.
 
 #### RF and RF-Koci - [`models/rf.py`](cell-type-classification/models/rf.py)
 
@@ -147,7 +150,7 @@ Two variants: **RF** trains on the full unary feature set; **RF-Koci** uses the 
 docker run --rm \
     -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
     ctc-baselines \
-    bash -c "cd /opt && python -m cell_type_classification.models.rf train \
+    bash -c "cd /data/dataset && PYTHONPATH=/opt python -m cell_type_classification.models.rf train \
         --dataset /data/dataset/manifest.csv \
         --output  /data/results/rf \
         --variant rf --save-fold-models \
@@ -157,7 +160,7 @@ docker run --rm \
 docker run --rm \
     -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
     ctc-baselines \
-    bash -c "cd /opt && python -m cell_type_classification.models.rf infer \
+    bash -c "cd /data/dataset && PYTHONPATH=/opt python -m cell_type_classification.models.rf infer \
         /data/results/rf \
         --variant rf \
         --output  /data/results/rf_grids \
@@ -171,7 +174,7 @@ docker run --rm \
 docker run --rm \
     -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
     ctc-baselines \
-    bash -c "cd /opt && python -m cell_type_classification.models.lgbm train \
+    bash -c "cd /data/dataset && PYTHONPATH=/opt python -m cell_type_classification.models.lgbm train \
         --dataset /data/dataset/manifest.csv \
         --output  /data/results/lgbm \
         --save-fold-models \
@@ -181,7 +184,7 @@ docker run --rm \
 docker run --rm \
     -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
     ctc-baselines \
-    bash -c "cd /opt && python -m cell_type_classification.models.lgbm infer \
+    bash -c "cd /data/dataset && PYTHONPATH=/opt python -m cell_type_classification.models.lgbm infer \
         /data/results/lgbm \
         --output /data/results/lgbm_grids \
         --feature-cache /data/results/feature_cache"
@@ -189,14 +192,14 @@ docker run --rm \
 
 #### CRF-Linear - [`models/crf_linear.py`](cell-type-classification/models/crf_linear.py)
 
-Operates directly on raw unary features (no upstream classifier projection). Two design choices distinguish it from the CRF-RF/GBM variants: sqrt-inverse global class weighting and hard EMPTY constraints. Both are on by default (paper configuration) and can be disabled via CLI flags for ablation studies.
+Operates directly on raw unary features (no upstream classifier projection). Two design choices distinguish it from the CRF-RF/LightGBM variants: sqrt-inverse global class weighting and hard EMPTY constraints. Both are on by default (paper configuration) and can be disabled via CLI flags for ablation studies.
 
 ```bash
 # Training
 docker run --rm \
     -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
     ctc-baselines \
-    bash -c "cd /opt && python -m cell_type_classification.models.crf_linear train \
+    bash -c "cd /data/dataset && PYTHONPATH=/opt python -m cell_type_classification.models.crf_linear train \
         --dataset /data/dataset/manifest.csv \
         --output  /data/results/crf_linear \
         --save-fold-models \
@@ -207,7 +210,7 @@ docker run --rm \
 docker run --rm \
     -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
     ctc-baselines \
-    bash -c "cd /opt && python -m cell_type_classification.models.crf_linear infer \
+    bash -c "cd /data/dataset && PYTHONPATH=/opt python -m cell_type_classification.models.crf_linear infer \
         /data/results/crf_linear \
         --output /data/results/crf_linear_grids \
         --feature-cache /data/results/feature_cache"
@@ -222,7 +225,7 @@ Two-stage pipeline: a fresh RF is trained on each fold's training cells, its `pr
 docker run --rm \
     -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
     ctc-baselines \
-    bash -c "cd /opt && python -m cell_type_classification.models.rf_crf train \
+    bash -c "cd /data/dataset && PYTHONPATH=/opt python -m cell_type_classification.models.rf_crf train \
         --dataset /data/dataset/manifest.csv \
         --output  /data/results/rf_crf \
         --save-fold-models \
@@ -233,7 +236,7 @@ docker run --rm \
 docker run --rm \
     -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
     ctc-baselines \
-    bash -c "cd /opt && python -m cell_type_classification.models.rf_crf infer \
+    bash -c "cd /data/dataset && PYTHONPATH=/opt python -m cell_type_classification.models.rf_crf infer \
         /data/results/rf_crf \
         --output /data/results/rf_crf_grids \
         --feature-cache /data/results/feature_cache"
@@ -248,7 +251,7 @@ Same two-stage pipeline as CRF-RF, but uses LightGBM (with the best hyperparamet
 docker run --rm \
     -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
     ctc-baselines \
-    bash -c "cd /opt && python -m cell_type_classification.models.lgbm_crf train \
+    bash -c "cd /data/dataset && PYTHONPATH=/opt python -m cell_type_classification.models.lgbm_crf train \
         --dataset /data/dataset/manifest.csv \
         --output  /data/results/lgbm_crf \
         --save-fold-models \
@@ -259,7 +262,7 @@ docker run --rm \
 docker run --rm \
     -v $(pwd)/dataset:/data/dataset -v $(pwd)/results:/data/results \
     ctc-baselines \
-    bash -c "cd /opt && python -m cell_type_classification.models.lgbm_crf infer \
+    bash -c "cd /data/dataset && PYTHONPATH=/opt python -m cell_type_classification.models.lgbm_crf infer \
         /data/results/lgbm_crf \
         --output /data/results/lgbm_crf_grids \
         --feature-cache /data/results/feature_cache"
@@ -273,7 +276,160 @@ We fine-tune [TUTA](https://github.com/microsoft/TUTA_table_understanding/tree/m
 
 ## Table Detection
 
-TBD, provided in [`table-detection/`](table-detection/).
+Code and baselines are provided in [`table-detection/`](table-detection/).
+All `td.py` commands run inside the `ctc-baselines` Docker container (see Requirements). The `table-detection/` directory is mounted at runtime; no image rebuild is needed.
+
+**Prerequisites**: run at least one CTC inference pass with `--feature-cache` before running `td.py`. The cache stores per-sheet compression mappings that `td.py` uses to re-expand compressed label grids to original sheet coordinates before table detection (the empty rows and columns are actually useful for table boundaries extraction). The working directory is set to `/data/dataset` in all commands below so that relative paths in the fold manifests resolve consistently with those used when the cache was built.
+
+### TD(Oracle)
+
+Upper-bound evaluation using ground-truth CTC labels. Decouples TD performance
+from CTC quality. Any CTC training output can be used as `cv_dir`; we use
+`rf_crf` since it is required for TD(CRF-RF) anyway.
+
+```bash
+docker run --rm \
+    -v $(pwd)/dataset:/data/dataset \
+    -v $(pwd)/results:/data/results \
+    -v $(pwd)/table-detection:/data/table_detection \
+    ctc-baselines \
+    bash -c "cd /data/dataset && python /data/table_detection/td.py oracle \
+        /data/results/rf_crf \
+        --k 5 \
+        --cache-dir /data/results/feature_cache \
+        --output    /data/results/td_oracle"
+```
+
+### TD(CRF-RF)
+
+Run CRF-RF inference first (see `rf_crf infer` above), then:
+
+```bash
+docker run --rm \
+    -v $(pwd)/dataset:/data/dataset \
+    -v $(pwd)/results:/data/results \
+    -v $(pwd)/table-detection:/data/table_detection \
+    ctc-baselines \
+    bash -c "cd /data/dataset && python /data/table_detection/td.py predicted-grids \
+        /data/results/rf_crf \
+        --k 5 \
+        --grids-dir /data/results/rf_crf_grids \
+        --grids-subdir predicted_grids \
+        --cache-dir /data/results/feature_cache \
+        --output /data/results/td_rf_crf"
+```
+
+### TD(CRF-LightGBM)
+
+Run CRF-LightGBM inference first (see `lgbm_crf infer` above), then:
+
+```bash
+docker run --rm \
+    -v $(pwd)/dataset:/data/dataset \
+    -v $(pwd)/results:/data/results \
+    -v $(pwd)/table-detection:/data/table_detection \
+    ctc-baselines \
+    bash -c "cd /data/dataset && python /data/table_detection/td.py predicted-grids \
+        /data/results/lgbm_crf \
+        --k 5 \
+        --grids-dir /data/results/lgbm_crf_grids \
+        --grids-subdir predicted_grids \
+        --cache-dir /data/results/feature_cache \
+        --output /data/results/td_lgbm_crf"
+```
+
+### SpreadsheetLLM (Mistral-7B)
+
+Runs outside Docker (see Requirements for GPU setup). All commands below are run from the `table-detection/` directory.
+
+**Step 1 — Build training data** (SheetCompressor encoding, CPU-only):
+
+```bash
+python -m spreadsheet_llm.finetune build-data \
+    --manifest ../dataset/manifest.csv \
+    --data-dir ../dataset \
+    --output results/sllm_finetune \
+    --k 5
+```
+
+**Step 2 — Fine-tune** (one LoRA adapter per fold, GPU required):
+
+```bash
+python -m spreadsheet_llm.finetune train \
+    --output results/sllm_finetune \
+    --k 5 \
+    --base-model mistralai/Mistral-7B-Instruct-v0.2
+```
+
+**Step 3 — K-fold inference** (loads each fold's adapter on the validation split):
+
+```bash
+python -m spreadsheet_llm.run_kfold \
+    --manifest ../dataset/manifest.csv \
+    --data-dir ../dataset \
+    --finetune-dir results/sllm_finetune \
+    --output results/sllm_kfold \
+    --base-model mistralai/Mistral-7B-Instruct-v0.2
+```
+
+**Step 4 — Parse inference output** (convert to `metrics.json` format):
+
+`run_kfold.py` writes results to `fold_0/`, `fold_1/`, ... (0-indexed). The
+parse script renumbers them to `fold_01/`, `fold_02/`, ... to match the
+convention used by `plot_generator.py`.
+
+```bash
+python table-detection/parse_sllm_results.py \
+    --input-dir table-detection/results/sllm_kfold \
+    --output-dir results/sllm_parsed
+```
+
+### Mondrian and CC
+
+[Mondrian](https://github.com/HPI-Information-Systems/Mondrian) and its
+connected-component (CC) baseline are external methods not produced by this
+repository. Refer to their official implementation for evaluation; their output
+can be fed into `plot_generator.py` using `--matching-modes region` (see
+below).
+
+### Plot generator
+
+[`plot_generator.py`](table-detection/plot_generator.py) runs on the host (see Requirements). It produces fold-aware precision curves aggregated across all 5 folds,
+outputting two figures: `micro_precision.<fmt>` and `macro_precision.<fmt>`.
+
+**Key parameters:**
+
+- `--results-dirs`: one directory per method. Each must contain
+  `fold_01/metrics.json` ... `fold_05/metrics.json`. Each `metrics.json` must
+  have a `per_file` list with `predicted_ranges`, `gt_ranges`, `n_predicted`,
+  `n_gt` fields.
+- `--method-names`: display labels, one per directory.
+- `--matching-modes`: `table` or `region` per method.
+  - `table`: precision denominator = `n_predicted`. Use for methods that
+    output table bounding boxes (TD(Oracle), TD(CRF-*), SpreadsheetLLM).
+  - `region`: precision denominator = `min(n_predicted, n_gt)`. Use for
+    region-based methods (Mondrian, CC) whose output count may systematically
+    differ from the GT table count.
+- `--manifest`: path to `dataset/manifest.csv`. Used to resolve file
+  identities when annotation paths are absent (fallback to UUID lookup).
+- `--k`: number of folds (default 5).
+- `--iou-thresholds`: list of IoU thresholds at which to mark vertical lines
+  (default `0.5 0.75 0.95`).
+- `--format`: output format (`pdf` or `png`).
+
+Sample command combining all four methods produced in this repository:
+
+```bash
+python table-detection/plot_generator.py \
+    --results-dirs results/td_oracle results/td_rf_crf results/td_lgbm_crf results/sllm_parsed \
+    --method-names "TD(Oracle)" "TD(CRF-RF)" "TD(CRF-LightGBM)" "SpreadsheetLLM(Mistral-7B)" \
+    --matching-modes table table table table \
+    --manifest dataset/manifest.csv \
+    --k 5 \
+    --iou-thresholds 0.5 0.75 0.95 \
+    --output-dir results/plots \
+    --format pdf
+```
 
 ---
 

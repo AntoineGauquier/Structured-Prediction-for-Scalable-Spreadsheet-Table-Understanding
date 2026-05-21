@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/2020LUCA_MC5503330300_address_countlist__76.csv",
+  "sheet_name": "9e1dc74a-d3a8-4884-8b6c-2df9d320d431",
+  "labels_path": "new_annotations/annotations_9e1dc74a-d3a8-4884-8b6c-2df9d320d431.npz",
+  "n_rows": 89,
+  "n_cols": 13,
+  "k_anchor": 4,
+  "compressed_tokens": 140,
+  "gt_ranges": [
+    "A1:M89"
+  ],
+  "predicted_ranges": [
+    "A1:M89"
+  ],
+  "predicted_ranges_compressed": [
+    "A1:J10"
+  ],
+  "range_corners_merged": false,
+  "no_valid_prediction": false,
+  "llm_response": "A1:J10",
+  "llm_tokens": 822,
+  "llm_elapsed": 0.14,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.175,
+  "error": null
+}

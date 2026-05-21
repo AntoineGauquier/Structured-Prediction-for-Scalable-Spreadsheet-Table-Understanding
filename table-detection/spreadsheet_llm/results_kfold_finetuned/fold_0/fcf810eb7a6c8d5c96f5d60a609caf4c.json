@@ -1,0 +1,58 @@
+{
+  "file_path": "spreadsheets/KNI2-nanotech-RD-expenditures-2024__49.xlsx",
+  "sheet_name": "Tot_RD_nano",
+  "labels_path": "new_annotations/annotations_73944c5f-097e-404e-9c68-d6746879a582.npz",
+  "n_rows": 62,
+  "n_cols": 19,
+  "k_anchor": 4,
+  "compressed_tokens": 405,
+  "gt_ranges": [
+    "B7:S28",
+    "B41:S62"
+  ],
+  "predicted_ranges": [
+    "S7:S62"
+  ],
+  "predicted_ranges_compressed": [
+    "K6:K15"
+  ],
+  "range_corners_merged": false,
+  "no_valid_prediction": false,
+  "llm_response": "K6:K15",
+  "llm_tokens": 1608,
+  "llm_elapsed": 0.178,
+  "metrics": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 2,
+    "n_pred": 1,
+    "n_gt": 2
+  },
+  "metrics_iou": {
+    "precision@0.5": 0.0,
+    "recall@0.5": 0.0,
+    "f1@0.5": 0.0,
+    "tp@0.5": 0,
+    "fp@0.5": 1,
+    "fn@0.5": 2,
+    "precision@0.75": 0.0,
+    "recall@0.75": 0.0,
+    "f1@0.75": 0.0,
+    "tp@0.75": 0,
+    "fp@0.75": 1,
+    "fn@0.75": 2,
+    "precision@0.95": 0.0,
+    "recall@0.95": 0.0,
+    "f1@0.95": 0.0,
+    "tp@0.95": 0,
+    "fp@0.95": 1,
+    "fn@0.95": 2,
+    "n_pred": 1,
+    "n_gt": 2
+  },
+  "elapsed_sec": 0.366,
+  "error": null
+}

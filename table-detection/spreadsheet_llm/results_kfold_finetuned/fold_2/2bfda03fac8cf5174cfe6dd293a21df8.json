@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/PF2_5_Trends_in_leave_entitlements_around_childbirth__9.xlsx",
+  "sheet_name": "Time-Series",
+  "labels_path": "new_annotations/annotations_2d21985b-f1c1-4a0d-a624-9c986613111a.npz",
+  "n_rows": 2136,
+  "n_cols": 19,
+  "k_anchor": 4,
+  "compressed_tokens": 217,
+  "gt_ranges": [
+    "A1:S2136"
+  ],
+  "predicted_ranges": [
+    "A1:S2136"
+  ],
+  "predicted_ranges_compressed": [
+    "A1:J9"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "]['A1':'J9']",
+  "llm_tokens": 706,
+  "llm_elapsed": 0.163,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 1.396,
+  "error": null
+}

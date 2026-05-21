@@ -1,0 +1,69 @@
+{
+  "file_path": "spreadsheets/AF_MR_09_14__81.xlsx",
+  "sheet_name": "Table 1a",
+  "labels_path": "new_annotations/annotations_e53b8fe4-99a0-4856-932c-ad366c8a39ad.npz",
+  "n_rows": 105,
+  "n_cols": 22,
+  "k_anchor": 4,
+  "compressed_tokens": 1035,
+  "gt_ranges": [
+    "C7:J75"
+  ],
+  "predicted_ranges": [
+    "D7:J73",
+    "D21:J28",
+    "D34:J38",
+    "D47:J52",
+    "D57:J62",
+    "D69:J72",
+    "D75:J80"
+  ],
+  "predicted_ranges_compressed": [
+    "C3:F68",
+    "C16:F23",
+    "C29:F33",
+    "C42:F47",
+    "C52:F57",
+    "C64:F67",
+    "C70:F73"
+  ],
+  "range_corners_merged": false,
+  "no_valid_prediction": false,
+  "llm_response": "The range of the table is: C3:F68, C16:F23, C29:F33, C42:F47, C52:F57, C64:F67, C70:F73",
+  "llm_tokens": 3993,
+  "llm_elapsed": 1.152,
+  "metrics": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 7,
+    "fn": 1,
+    "n_pred": 7,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 0.14285714285714285,
+    "recall@0.5": 1.0,
+    "f1@0.5": 0.25,
+    "tp@0.5": 1,
+    "fp@0.5": 6,
+    "fn@0.5": 0,
+    "precision@0.75": 0.14285714285714285,
+    "recall@0.75": 1.0,
+    "f1@0.75": 0.25,
+    "tp@0.75": 1,
+    "fp@0.75": 6,
+    "fn@0.75": 0,
+    "precision@0.95": 0.0,
+    "recall@0.95": 0.0,
+    "f1@0.95": 0.0,
+    "tp@0.95": 0,
+    "fp@0.95": 7,
+    "fn@0.95": 1,
+    "n_pred": 7,
+    "n_gt": 1
+  },
+  "elapsed_sec": 1.275,
+  "error": null
+}

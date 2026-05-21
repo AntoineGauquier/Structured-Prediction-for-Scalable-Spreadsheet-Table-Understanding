@@ -1,0 +1,61 @@
+{
+  "file_path": "spreadsheets/tes_17_1974__89.xlsx",
+  "sheet_name": "TES17",
+  "labels_path": "new_annotations/annotations_5922a9a8-eff1-41bb-b4cf-7605286a3290.npz",
+  "n_rows": 67,
+  "n_cols": 54,
+  "k_anchor": 4,
+  "compressed_tokens": 1708,
+  "gt_ranges": [
+    "A12:M35",
+    "P12:AI35",
+    "AK12:BB35",
+    "P41:AI54",
+    "P60:AI66"
+  ],
+  "predicted_ranges": [
+    "A5:AI66"
+  ],
+  "predicted_ranges_compressed": [
+    "A5:X47"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "('A5':'X47')",
+  "llm_tokens": 5581,
+  "llm_elapsed": 0.448,
+  "metrics": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 5,
+    "n_pred": 1,
+    "n_gt": 5
+  },
+  "metrics_iou": {
+    "precision@0.5": 0.0,
+    "recall@0.5": 0.0,
+    "f1@0.5": 0.0,
+    "tp@0.5": 0,
+    "fp@0.5": 1,
+    "fn@0.5": 5,
+    "precision@0.75": 0.0,
+    "recall@0.75": 0.0,
+    "f1@0.75": 0.0,
+    "tp@0.75": 0,
+    "fp@0.75": 1,
+    "fn@0.75": 5,
+    "precision@0.95": 0.0,
+    "recall@0.95": 0.0,
+    "f1@0.95": 0.0,
+    "tp@0.95": 0,
+    "fp@0.95": 1,
+    "fn@0.95": 5,
+    "n_pred": 1,
+    "n_gt": 5
+  },
+  "elapsed_sec": 0.601,
+  "error": null
+}

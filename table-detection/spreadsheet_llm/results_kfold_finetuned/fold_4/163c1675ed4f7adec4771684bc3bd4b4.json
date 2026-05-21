@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/irsocerfs2018_TRD05__85.xlsx",
+  "sheet_name": "ERFS_TRD05",
+  "labels_path": "new_annotations/annotations_446778d7-6520-452f-b6e4-5128bcf7a19a.npz",
+  "n_rows": 20,
+  "n_cols": 27,
+  "k_anchor": 4,
+  "compressed_tokens": 557,
+  "gt_ranges": [
+    "A4:Z13"
+  ],
+  "predicted_ranges": [
+    "A4:Z13"
+  ],
+  "predicted_ranges_compressed": [
+    "A3:J12"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "('A3':'J12')",
+  "llm_tokens": 1939,
+  "llm_elapsed": 0.238,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.267,
+  "error": null
+}

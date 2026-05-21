@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/Codebook_CM2__98.xlsx",
+  "sheet_name": "CY6_MS_CM2_SCH_QQQ (School)",
+  "labels_path": "new_annotations/annotations_8849b9d5-ce49-4c5d-86b5-8c9b308efa6b.npz",
+  "n_rows": 1474,
+  "n_cols": 10,
+  "k_anchor": 4,
+  "compressed_tokens": 181,
+  "gt_ranges": [
+    "A3:J1473"
+  ],
+  "predicted_ranges": [
+    "A3:J1473"
+  ],
+  "predicted_ranges_compressed": [
+    "A3:J10"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "]['A3:J10']",
+  "llm_tokens": 861,
+  "llm_elapsed": 0.171,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 1.475,
+  "error": null
+}

@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/irecosine2013_r40__94.xls",
+  "sheet_name": "23",
+  "labels_path": "new_annotations/annotations_3b8f2838-1bea-4896-a932-2fac79f52991.npz",
+  "n_rows": 13,
+  "n_cols": 13,
+  "k_anchor": 4,
+  "compressed_tokens": 412,
+  "gt_ranges": [
+    "A4:M10"
+  ],
+  "predicted_ranges": [
+    "A4:M10"
+  ],
+  "predicted_ranges_compressed": [
+    "A3:J9"
+  ],
+  "range_corners_merged": false,
+  "no_valid_prediction": false,
+  "llm_response": "A3:J9",
+  "llm_tokens": 1200,
+  "llm_elapsed": 0.139,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.154,
+  "error": null
+}

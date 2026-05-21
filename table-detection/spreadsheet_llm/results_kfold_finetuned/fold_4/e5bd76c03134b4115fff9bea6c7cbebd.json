@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/KNI7-RTA-nano-2024__96.xlsx",
+  "sheet_name": "Nanotech RTA",
+  "labels_path": "new_annotations/annotations_add84362-3282-438b-bd14-72f6362e5761.npz",
+  "n_rows": 74,
+  "n_cols": 6,
+  "k_anchor": 4,
+  "compressed_tokens": 297,
+  "gt_ranges": [
+    "B7:D64"
+  ],
+  "predicted_ranges": [
+    "B7:D64"
+  ],
+  "predicted_ranges_compressed": [
+    "B6:D15"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "['B6:D15']",
+  "llm_tokens": 1058,
+  "llm_elapsed": 0.179,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.208,
+  "error": null
+}

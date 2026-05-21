@@ -1,0 +1,61 @@
+{
+  "file_path": "spreadsheets/vaccine_volume_calculator_2012_661f2cc4-47a5-421e-bfc6-b45306e101e4__28.xlsx",
+  "sheet_name": "Abacus_Tables",
+  "labels_path": "new_annotations/annotations_e9924e5e-3490-49ac-8eec-c580fe35890c.npz",
+  "n_rows": 219,
+  "n_cols": 28,
+  "k_anchor": 4,
+  "compressed_tokens": 5161,
+  "gt_ranges": [
+    "B11:AB46",
+    "B58:AB93",
+    "B105:AB140",
+    "B152:AB187",
+    "B197:AB219"
+  ],
+  "predicted_ranges": [
+    "B1:AB219"
+  ],
+  "predicted_ranges_compressed": [
+    "A1:W91"
+  ],
+  "range_corners_merged": false,
+  "no_valid_prediction": false,
+  "llm_response": "A1:W91",
+  "llm_tokens": 18424,
+  "llm_elapsed": 1.404,
+  "metrics": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 5,
+    "n_pred": 1,
+    "n_gt": 5
+  },
+  "metrics_iou": {
+    "precision@0.5": 0.0,
+    "recall@0.5": 0.0,
+    "f1@0.5": 0.0,
+    "tp@0.5": 0,
+    "fp@0.5": 1,
+    "fn@0.5": 5,
+    "precision@0.75": 0.0,
+    "recall@0.75": 0.0,
+    "f1@0.75": 0.0,
+    "tp@0.75": 0,
+    "fp@0.75": 1,
+    "fn@0.75": 5,
+    "precision@0.95": 0.0,
+    "recall@0.95": 0.0,
+    "f1@0.95": 0.0,
+    "tp@0.95": 0,
+    "fp@0.95": 1,
+    "fn@0.95": 5,
+    "n_pred": 1,
+    "n_gt": 5
+  },
+  "elapsed_sec": 2.147,
+  "error": null
+}

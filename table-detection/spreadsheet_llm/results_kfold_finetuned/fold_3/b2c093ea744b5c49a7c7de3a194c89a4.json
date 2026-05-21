@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/dep47__35.xls",
+  "sheet_name": "Cantons",
+  "labels_path": "new_annotations/annotations_1666b9cb-752b-41f7-9710-0a9734d8f1cf.npz",
+  "n_rows": 49,
+  "n_cols": 10,
+  "k_anchor": 4,
+  "compressed_tokens": 247,
+  "gt_ranges": [
+    "A8:I48"
+  ],
+  "predicted_ranges": [
+    "A8:I48"
+  ],
+  "predicted_ranges_compressed": [
+    "A6:I13"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "]['A6':'I13']",
+  "llm_tokens": 1021,
+  "llm_elapsed": 0.19,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.211,
+  "error": null
+}

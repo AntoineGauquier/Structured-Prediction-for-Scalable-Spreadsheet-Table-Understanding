@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/PF_1_9_Aspects_of_child_protection_Dec2013__54.xls",
+  "sheet_name": "Acc deaths per 100000, aged <5",
+  "labels_path": "new_annotations/annotations_868ad537-8d54-4a18-9a1d-c860a48915b2.npz",
+  "n_rows": 35,
+  "n_cols": 43,
+  "k_anchor": 4,
+  "compressed_tokens": 316,
+  "gt_ranges": [
+    "A1:AQ35"
+  ],
+  "predicted_ranges": [
+    "A1:AQ35"
+  ],
+  "predicted_ranges_compressed": [
+    "A1:J10"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "]['A1:J10']",
+  "llm_tokens": 1544,
+  "llm_elapsed": 0.207,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.805,
+  "error": null
+}

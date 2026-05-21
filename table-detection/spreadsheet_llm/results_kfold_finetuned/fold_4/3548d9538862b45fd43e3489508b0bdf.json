@@ -1,0 +1,60 @@
+{
+  "file_path": "spreadsheets/OECD-Social-Expenditure-Update-Tax-Data-by-Country__76.xlsx",
+  "sheet_name": "SWE",
+  "labels_path": "new_annotations/annotations_2ba1afd9-8874-4f8d-8300-5d2036f8372f.npz",
+  "n_rows": 107,
+  "n_cols": 43,
+  "k_anchor": 4,
+  "compressed_tokens": 811,
+  "gt_ranges": [
+    "B4:AQ12",
+    "B21:AQ41",
+    "B63:AQ84",
+    "B91:AQ103"
+  ],
+  "predicted_ranges": [
+    "X4:AQ84"
+  ],
+  "predicted_ranges_compressed": [
+    "D1:M33"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "['D1:M33']",
+  "llm_tokens": 3585,
+  "llm_elapsed": 0.312,
+  "metrics": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 4,
+    "n_pred": 1,
+    "n_gt": 4
+  },
+  "metrics_iou": {
+    "precision@0.5": 0.0,
+    "recall@0.5": 0.0,
+    "f1@0.5": 0.0,
+    "tp@0.5": 0,
+    "fp@0.5": 1,
+    "fn@0.5": 4,
+    "precision@0.75": 0.0,
+    "recall@0.75": 0.0,
+    "f1@0.75": 0.0,
+    "tp@0.75": 0,
+    "fp@0.75": 1,
+    "fn@0.75": 4,
+    "precision@0.95": 0.0,
+    "recall@0.95": 0.0,
+    "f1@0.95": 0.0,
+    "tp@0.95": 0,
+    "fp@0.95": 1,
+    "fn@0.95": 4,
+    "n_pred": 1,
+    "n_gt": 4
+  },
+  "elapsed_sec": 1.979,
+  "error": null
+}

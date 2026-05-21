@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/Stat_RSJ_6.1_penal_Les_caracteristiques_des_auteurs_traites_par_les_parquets_2015__82.ods",
+  "sheet_name": "6.1 Fig.4",
+  "labels_path": "new_annotations/annotations_c67084e1-e702-4e7e-ba21-f4f287fdfc1d.npz",
+  "n_rows": 14,
+  "n_cols": 9,
+  "k_anchor": 4,
+  "compressed_tokens": 417,
+  "gt_ranges": [
+    "A3:I12"
+  ],
+  "predicted_ranges": [
+    "A3:I12"
+  ],
+  "predicted_ranges_compressed": [
+    "A3:I12"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "]['A3':'I12']",
+  "llm_tokens": 1591,
+  "llm_elapsed": 0.221,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.263,
+  "error": null
+}

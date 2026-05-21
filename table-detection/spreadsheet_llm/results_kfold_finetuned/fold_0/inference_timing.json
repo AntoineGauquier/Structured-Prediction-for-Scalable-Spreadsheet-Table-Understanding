@@ -1,0 +1,9 @@
+{
+  "fold": 0,
+  "model_load_sec": 8.5,
+  "inference_sec": 297.6,
+  "total_sec": 306.1,
+  "n_files": 148,
+  "n_ok": 146,
+  "avg_sec_per_file": 2.04
+}

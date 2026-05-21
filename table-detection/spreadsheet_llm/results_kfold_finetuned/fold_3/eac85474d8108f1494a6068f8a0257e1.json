@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/HC1-2-Housing-costs-over-income__82.xlsx",
+  "sheet_name": "HC12_4",
+  "labels_path": "new_annotations/annotations_ae4dbc14-67dc-48e9-8c83-b9a8c690c275.npz",
+  "n_rows": 149,
+  "n_cols": 30,
+  "k_anchor": 4,
+  "compressed_tokens": 208,
+  "gt_ranges": [
+    "M3:Q33"
+  ],
+  "predicted_ranges": [
+    "M3:Q33"
+  ],
+  "predicted_ranges_compressed": [
+    "A1:E10"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "]['Range': 'A1:E10']",
+  "llm_tokens": 1082,
+  "llm_elapsed": 0.232,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 4.751,
+  "error": null
+}

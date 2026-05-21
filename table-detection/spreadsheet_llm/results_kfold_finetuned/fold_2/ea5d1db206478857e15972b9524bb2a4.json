@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/hfa-boys-perc-who2007-exp__11.xlsx",
+  "sheet_name": "hfa_boys_perc_WHO2007_exp",
+  "labels_path": "new_annotations/annotations_3e907e68-55f4-4a3c-a84c-366bdf1b74b2.npz",
+  "n_rows": 169,
+  "n_cols": 20,
+  "k_anchor": 4,
+  "compressed_tokens": 278,
+  "gt_ranges": [
+    "A1:T169"
+  ],
+  "predicted_ranges": [
+    "A1:T169"
+  ],
+  "predicted_ranges_compressed": [
+    "A1:J10"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "]['A1':'J10']",
+  "llm_tokens": 1445,
+  "llm_elapsed": 0.218,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.349,
+  "error": null
+}

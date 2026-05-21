@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/donnes_complementaires__79.xls",
+  "sheet_name": "Communes dep 44",
+  "labels_path": "new_annotations/annotations_c9ac03ca-e034-42fa-b295-38b9c0475c35.npz",
+  "n_rows": 1503,
+  "n_cols": 8,
+  "k_anchor": 4,
+  "compressed_tokens": 214,
+  "gt_ranges": [
+    "A19:H231"
+  ],
+  "predicted_ranges": [
+    "A19:G231"
+  ],
+  "predicted_ranges_compressed": [
+    "A1:E10"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "]['range': 'A1:E10']",
+  "llm_tokens": 1073,
+  "llm_elapsed": 0.223,
+  "metrics": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 0.0,
+    "recall@0.95": 0.0,
+    "f1@0.95": 0.0,
+    "tp@0.95": 0,
+    "fp@0.95": 1,
+    "fn@0.95": 1,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.346,
+  "error": null
+}

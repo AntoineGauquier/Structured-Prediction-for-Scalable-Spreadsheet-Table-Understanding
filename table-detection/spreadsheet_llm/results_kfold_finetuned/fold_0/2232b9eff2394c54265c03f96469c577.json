@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/Outflows%20of%20foreign%20population__38.xlsx",
+  "sheet_name": "A2_EN_2023",
+  "labels_path": "new_annotations/annotations_079cbb43-4a97-4cf6-87ff-88a0b3d24f45.npz",
+  "n_rows": 34,
+  "n_cols": 19,
+  "k_anchor": 4,
+  "compressed_tokens": 346,
+  "gt_ranges": [
+    "A3:L32"
+  ],
+  "predicted_ranges": [
+    "A3:L32"
+  ],
+  "predicted_ranges_compressed": [
+    "A3:J12"
+  ],
+  "range_corners_merged": false,
+  "no_valid_prediction": false,
+  "llm_response": "A3:J12",
+  "llm_tokens": 1535,
+  "llm_elapsed": 0.173,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.2,
+  "error": null
+}

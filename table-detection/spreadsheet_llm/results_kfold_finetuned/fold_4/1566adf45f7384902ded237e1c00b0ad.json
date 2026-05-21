@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/52aeb0a2-1c69-582d-eec6-c281d1efdd91__54",
+  "sheet_name": "3",
+  "labels_path": "new_annotations/annotations_77f5dd2b-a21b-448c-835f-556910007e43.npz",
+  "n_rows": 87,
+  "n_cols": 13,
+  "k_anchor": 4,
+  "compressed_tokens": 272,
+  "gt_ranges": [
+    "A5:G20"
+  ],
+  "predicted_ranges": [
+    "A5:G20"
+  ],
+  "predicted_ranges_compressed": [
+    "A4:G13"
+  ],
+  "range_corners_merged": false,
+  "no_valid_prediction": false,
+  "llm_response": "A4:G13",
+  "llm_tokens": 1286,
+  "llm_elapsed": 0.157,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.401,
+  "error": null
+}

@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/Stat_RSJ_autres_16_2%202019__73.ods",
+  "sheet_name": "16.2 Fig.3",
+  "labels_path": "new_annotations/annotations_db1258fc-0012-48a2-9153-7db5822e5da4.npz",
+  "n_rows": 23,
+  "n_cols": 3,
+  "k_anchor": 4,
+  "compressed_tokens": 233,
+  "gt_ranges": [
+    "A3:C19"
+  ],
+  "predicted_ranges": [
+    "A3:C19"
+  ],
+  "predicted_ranges_compressed": [
+    "A3:C12"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "['A3:C12']",
+  "llm_tokens": 901,
+  "llm_elapsed": 0.172,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 29.653,
+  "error": null
+}

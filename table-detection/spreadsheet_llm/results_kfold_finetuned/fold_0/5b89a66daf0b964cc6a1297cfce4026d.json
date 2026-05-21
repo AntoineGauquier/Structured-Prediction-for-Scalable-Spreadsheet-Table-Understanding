@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/timss2015_table17__21.xlsx",
+  "sheet_name": "17",
+  "labels_path": "new_annotations/annotations_e39a2246-af47-4ff2-87f8-65fc807d0e3f.npz",
+  "n_rows": 10,
+  "n_cols": 19,
+  "k_anchor": 4,
+  "compressed_tokens": 406,
+  "gt_ranges": [
+    "A3:P9"
+  ],
+  "predicted_ranges": [
+    "A3:P9"
+  ],
+  "predicted_ranges_compressed": [
+    "A3:G9"
+  ],
+  "range_corners_merged": false,
+  "no_valid_prediction": false,
+  "llm_response": "A3:G9",
+  "llm_tokens": 1215,
+  "llm_elapsed": 0.139,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.162,
+  "error": null
+}

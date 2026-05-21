@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/tabn603.90__84.xls",
+  "sheet_name": "Digest 2019 Table 603.90",
+  "labels_path": "new_annotations/annotations_99a01f91-4259-4394-be9f-ff9c003cf6c0.npz",
+  "n_rows": 60,
+  "n_cols": 25,
+  "k_anchor": 4,
+  "compressed_tokens": 444,
+  "gt_ranges": [
+    "A3:Y52"
+  ],
+  "predicted_ranges": [
+    "A3:Y52"
+  ],
+  "predicted_ranges_compressed": [
+    "A3:J11"
+  ],
+  "range_corners_merged": false,
+  "no_valid_prediction": false,
+  "llm_response": "A3:J11",
+  "llm_tokens": 1449,
+  "llm_elapsed": 0.172,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.229,
+  "error": null
+}

@@ -1,0 +1,61 @@
+{
+  "file_path": "spreadsheets/Menages_RP2018__89.xlsx",
+  "sheet_name": "Men3",
+  "labels_path": "new_annotations/annotations_71c3d0b3-695d-4bbb-9f59-b7e0ff6a0544.npz",
+  "n_rows": 41,
+  "n_cols": 8,
+  "k_anchor": 4,
+  "compressed_tokens": 902,
+  "gt_ranges": [
+    "A31:H39",
+    "A17:H25",
+    "A3:H11"
+  ],
+  "predicted_ranges": [
+    "A1:H11",
+    "A16:H39"
+  ],
+  "predicted_ranges_compressed": [
+    "A1:H11",
+    "A15:H37"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "]['A1:H11', 'A15:H37']",
+  "llm_tokens": 3161,
+  "llm_elapsed": 0.425,
+  "metrics": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 2,
+    "fn": 3,
+    "n_pred": 2,
+    "n_gt": 3
+  },
+  "metrics_iou": {
+    "precision@0.5": 0.5,
+    "recall@0.5": 0.3333333333333333,
+    "f1@0.5": 0.4,
+    "tp@0.5": 1,
+    "fp@0.5": 1,
+    "fn@0.5": 2,
+    "precision@0.75": 0.5,
+    "recall@0.75": 0.3333333333333333,
+    "f1@0.75": 0.4,
+    "tp@0.75": 1,
+    "fp@0.75": 1,
+    "fn@0.75": 2,
+    "precision@0.95": 0.0,
+    "recall@0.95": 0.0,
+    "f1@0.95": 0.0,
+    "tp@0.95": 0,
+    "fp@0.95": 2,
+    "fn@0.95": 3,
+    "n_pred": 2,
+    "n_gt": 3
+  },
+  "elapsed_sec": 0.477,
+  "error": null
+}

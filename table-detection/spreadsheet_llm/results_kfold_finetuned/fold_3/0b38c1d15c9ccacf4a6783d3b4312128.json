@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/t_5402__0.xls",
+  "sheet_name": "t_5402 en \u00e9volution en %",
+  "labels_path": "new_annotations/annotations_a09ab7cc-d57a-4198-953b-15aa41810938.npz",
+  "n_rows": 300,
+  "n_cols": 256,
+  "k_anchor": 4,
+  "compressed_tokens": 3289,
+  "gt_ranges": [
+    "A3:BS53"
+  ],
+  "predicted_ranges": [
+    "A3:BS53"
+  ],
+  "predicted_ranges_compressed": [
+    "A2:V41"
+  ],
+  "range_corners_merged": false,
+  "no_valid_prediction": false,
+  "llm_response": "A2:V41",
+  "llm_tokens": 11890,
+  "llm_elapsed": 0.863,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 1.728,
+  "error": null
+}

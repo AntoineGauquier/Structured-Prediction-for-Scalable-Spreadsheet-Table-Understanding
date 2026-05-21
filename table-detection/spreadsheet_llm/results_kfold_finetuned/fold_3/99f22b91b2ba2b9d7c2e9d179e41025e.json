@@ -1,0 +1,61 @@
+{
+  "file_path": "spreadsheets/joint-malnutrition-estimates-regional-and-global-estimates-march2020__15.xlsx",
+  "sheet_name": "Stunting - Prevalence",
+  "labels_path": "new_annotations/annotations_cc8ad7dc-4c60-4b9c-964b-8836e7413745.npz",
+  "n_rows": 121,
+  "n_cols": 134,
+  "k_anchor": 4,
+  "compressed_tokens": 4673,
+  "gt_ranges": [
+    "A11:BU107"
+  ],
+  "predicted_ranges": [
+    "A11:B67",
+    "A70:B80",
+    "A83:B107"
+  ],
+  "predicted_ranges_compressed": [
+    "A4:B12",
+    "A14:B23",
+    "A25:B46"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "]['A4:B12', 'A14:B23', 'A25:B46']",
+  "llm_tokens": 15901,
+  "llm_elapsed": 1.551,
+  "metrics": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 3,
+    "fn": 1,
+    "n_pred": 3,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 0.0,
+    "recall@0.5": 0.0,
+    "f1@0.5": 0.0,
+    "tp@0.5": 0,
+    "fp@0.5": 3,
+    "fn@0.5": 1,
+    "precision@0.75": 0.0,
+    "recall@0.75": 0.0,
+    "f1@0.75": 0.0,
+    "tp@0.75": 0,
+    "fp@0.75": 3,
+    "fn@0.75": 1,
+    "precision@0.95": 0.0,
+    "recall@0.95": 0.0,
+    "f1@0.95": 0.0,
+    "tp@0.95": 0,
+    "fp@0.95": 3,
+    "fn@0.95": 1,
+    "n_pred": 3,
+    "n_gt": 1
+  },
+  "elapsed_sec": 2.102,
+  "error": null
+}

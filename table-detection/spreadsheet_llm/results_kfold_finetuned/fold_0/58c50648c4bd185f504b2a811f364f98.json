@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/stat_annuaire_p205_2012__58.ods",
+  "sheet_name": "Justice p\u00e9nale",
+  "labels_path": "new_annotations/annotations_c409767d-4cf8-43b6-adca-579e4f4c7ff4.npz",
+  "n_rows": 61,
+  "n_cols": 8,
+  "k_anchor": 4,
+  "compressed_tokens": 181,
+  "gt_ranges": [
+    "A3:H57"
+  ],
+  "predicted_ranges": [
+    "A3:H57"
+  ],
+  "predicted_ranges_compressed": [
+    "A2:H10"
+  ],
+  "range_corners_merged": false,
+  "no_valid_prediction": false,
+  "llm_response": "A2:H10",
+  "llm_tokens": 880,
+  "llm_elapsed": 0.146,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.625,
+  "error": null
+}

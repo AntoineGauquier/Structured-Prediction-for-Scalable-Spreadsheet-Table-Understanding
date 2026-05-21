@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/5.4_Vols d'accessoire et dans les v\u00e9hicules__5.xlsx",
+  "sheet_name": "fig8",
+  "labels_path": "new_annotations/annotations_cedb3509-7b72-4590-a894-18fe6af9d42a.npz",
+  "n_rows": 132,
+  "n_cols": 3,
+  "k_anchor": 4,
+  "compressed_tokens": 200,
+  "gt_ranges": [
+    "A36:B132"
+  ],
+  "predicted_ranges": [
+    "A36:B132"
+  ],
+  "predicted_ranges_compressed": [
+    "A4:B13"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "('A4':'B13')",
+  "llm_tokens": 717,
+  "llm_elapsed": 0.176,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 1.0,
+    "recall@0.5": 1.0,
+    "f1@0.5": 1.0,
+    "tp@0.5": 1,
+    "fp@0.5": 0,
+    "fn@0.5": 0,
+    "precision@0.75": 1.0,
+    "recall@0.75": 1.0,
+    "f1@0.75": 1.0,
+    "tp@0.75": 1,
+    "fp@0.75": 0,
+    "fn@0.75": 0,
+    "precision@0.95": 1.0,
+    "recall@0.95": 1.0,
+    "f1@0.95": 1.0,
+    "tp@0.95": 1,
+    "fp@0.95": 0,
+    "fn@0.95": 0,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.231,
+  "error": null
+}

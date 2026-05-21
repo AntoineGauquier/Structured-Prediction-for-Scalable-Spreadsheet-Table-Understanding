@@ -1,0 +1,57 @@
+{
+  "file_path": "spreadsheets/IQ.SPI__39.PIL4",
+  "sheet_name": "Data",
+  "labels_path": "new_annotations/annotations_00040e6f-8bbe-4da4-9f2a-59150831ef10.npz",
+  "n_rows": 270,
+  "n_cols": 69,
+  "k_anchor": 4,
+  "compressed_tokens": 139,
+  "gt_ranges": [
+    "A4:BQ270"
+  ],
+  "predicted_ranges": [
+    "A4:BQ8"
+  ],
+  "predicted_ranges_compressed": [
+    "A3:J7"
+  ],
+  "range_corners_merged": true,
+  "no_valid_prediction": false,
+  "llm_response": "]['Range' 'A3:J7']",
+  "llm_tokens": 688,
+  "llm_elapsed": 0.191,
+  "metrics": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "tp": 0,
+    "fp": 1,
+    "fn": 1,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "metrics_iou": {
+    "precision@0.5": 0.0,
+    "recall@0.5": 0.0,
+    "f1@0.5": 0.0,
+    "tp@0.5": 0,
+    "fp@0.5": 1,
+    "fn@0.5": 1,
+    "precision@0.75": 0.0,
+    "recall@0.75": 0.0,
+    "f1@0.75": 0.0,
+    "tp@0.75": 0,
+    "fp@0.75": 1,
+    "fn@0.75": 1,
+    "precision@0.95": 0.0,
+    "recall@0.95": 0.0,
+    "f1@0.95": 0.0,
+    "tp@0.95": 0,
+    "fp@0.95": 1,
+    "fn@0.95": 1,
+    "n_pred": 1,
+    "n_gt": 1
+  },
+  "elapsed_sec": 0.36,
+  "error": null
+}
