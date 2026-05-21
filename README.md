@@ -267,7 +267,7 @@ docker run --rm \
 
 #### TUTA
 
-We fine-tune [TUTA](https://github.com/microsoft/TUTA_table_understanding) on our five cell-type classes by unfreezing its two last transformer layers and the classification head, using the same 5-fold cross-validation. See the paper for more details.
+We fine-tune [TUTA](https://github.com/microsoft/TUTA_table_understanding/tree/main/tuta) on our five cell-type classes by unfreezing its two last transformer layers and the classification head, using the same 5-fold cross-validation. See the paper for more details.
 
 ---
 
