@@ -1,35 +1,3 @@
-"""K-fold inference runner for fine-tuned Mistral-7B-Instruct-v0.2.
-
-Loads the LoRA adapter trained by finetune.py for each fold and runs inference
-on that fold's validation split. Results are cached per-file as JSON so runs
-can be resumed safely.
-
-Usage
------
-# Run all folds (sequentially, one GPU load per fold):
-python -m spreadsheet_llm.run_kfold \\
-    --manifest   ../dataset/manifest.csv \\
-    --data-dir   ../dataset \\
-    --finetune-dir finetune_output \\
-    --output     results/kfold_finetuned \\
-    --base-model mistralai/Mistral-7B-Instruct-v0.2
-
-# Run a single fold:
-python -m spreadsheet_llm.run_kfold \\
-    --manifest   ../dataset/manifest.csv \\
-    --data-dir   ../dataset \\
-    --finetune-dir finetune_output \\
-    --output     results/kfold_finetuned \\
-    --fold 0
-
-# Dry run (encode only, no model loading — runs on CPU):
-python -m spreadsheet_llm.run_kfold \\
-    --manifest   ../dataset/manifest.csv \\
-    --data-dir   ../dataset \\
-    --finetune-dir finetune_output \\
-    --output     results/kfold_finetuned \\
-    --dry-run
-"""
 from __future__ import annotations
 
 import argparse

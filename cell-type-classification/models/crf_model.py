@@ -1,9 +1,3 @@
-"""
-CRF model for table structure detection in spreadsheets.
-Wraps pystruct's EdgeFeatureGraphCRF with additional functions.
-Modifies also OneSlackSSVM behavior for clamping.
-"""
-
 import os
 import numpy as np
 from pystruct.models import EdgeFeatureGraphCRF
