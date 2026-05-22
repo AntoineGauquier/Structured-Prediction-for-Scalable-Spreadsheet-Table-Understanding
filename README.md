@@ -141,7 +141,7 @@ All reproduction scripts use a fixed 5-fold cross-validation with `seed=2112`, m
 
 Pass `--feature-cache /data/results/feature_cache` to every command. This caches extracted features across folds and is also required by `td.py` (see Table Detection). All commands are run from the repository root.
 
-#### RF and RF-Koci - [`models/rf.py`](cell-type-classification/models/rf.py)
+#### RF and RF-Koci — [`models/rf.py`](cell-type-classification/models/rf.py)
 
 Two variants: **RF** trains on the full unary feature set; **RF-Koci** uses the reduced feature subset presented in the paper. Select the variant with `--variant rf` or `--variant rf-koci`.
 
@@ -167,7 +167,7 @@ docker run --rm \
         --feature-cache /data/results/feature_cache"
 ```
 
-#### LightGBM - [`models/lgbm.py`](cell-type-classification/models/lgbm.py)
+#### LightGBM — [`models/lgbm.py`](cell-type-classification/models/lgbm.py)
 
 ```bash
 # Training
@@ -190,7 +190,7 @@ docker run --rm \
         --feature-cache /data/results/feature_cache"
 ```
 
-#### CRF-Linear - [`models/crf_linear.py`](cell-type-classification/models/crf_linear.py)
+#### CRF-Linear — [`models/crf_linear.py`](cell-type-classification/models/crf_linear.py)
 
 Operates directly on raw unary features (no upstream classifier projection). Two design choices distinguish it from the CRF-RF/LightGBM variants: sqrt-inverse global class weighting and hard EMPTY constraints. Both are on by default (paper configuration) and can be disabled via CLI flags for ablation studies.
 
@@ -216,7 +216,7 @@ docker run --rm \
         --feature-cache /data/results/feature_cache"
 ```
 
-#### CRF-RF - [`models/rf_crf.py`](cell-type-classification/models/rf_crf.py)
+#### CRF-RF — [`models/rf_crf.py`](cell-type-classification/models/rf_crf.py)
 
 Two-stage pipeline: a fresh RF is trained on each fold's training cells, its `predict_proba` output (one probability per class) replaces the raw unary features, and the CRF is then trained on those projected features. Pairwise features are unchanged.
 
@@ -242,7 +242,7 @@ docker run --rm \
         --feature-cache /data/results/feature_cache"
 ```
 
-#### CRF-LightGBM - [`models/lgbm_crf.py`](cell-type-classification/models/lgbm_crf.py)
+#### CRF-LightGBM — [`models/lgbm_crf.py`](cell-type-classification/models/lgbm_crf.py)
 
 Same two-stage pipeline as CRF-RF, but uses LightGBM (with the best hyperparameters from the standalone LightGBM baseline) as the first-stage classifier.
 
