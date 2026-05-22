@@ -651,6 +651,10 @@ def _build_parser():
             "--max-grid-size", type=int, default=2500,
             help="Training grids with more than this many cells are skipped (default: 2500)",
         )
+        sp.add_argument(
+            "--n-jobs", type=int, default=-1,
+            help="Parallel workers for feature loading / LightGBM (default: -1 = all cores)",
+        )
 
     # train
     tr = sub.add_parser(
@@ -673,8 +677,6 @@ def _build_parser():
                     help="Output directory")
     tr.add_argument("--save-fold-models", action="store_true",
                     help="Persist model.joblib per fold (required for the infer subcommand)")
-    tr.add_argument("--n-jobs", type=int, default=-1,
-                    help="Parallel jobs for LGBMClassifier (default: -1 = all cores)")
     _add_shared(tr)
 
     # infer
