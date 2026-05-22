@@ -195,9 +195,7 @@ def make_folds(dataset_csv, k, random_state=2112):
 
 
 def _load_manifest(path):
-    df = pd.read_csv(path)
-    mask = df["file_path"].apply(lambda p: Path(p).stem).isin(_SUBSET)
-    return df[~mask].reset_index(drop=True)
+    return pd.read_csv(path)
 
 
 def _load_single_sample(args):
@@ -216,6 +214,10 @@ def _load_single_sample(args):
     import numpy as np
 
     file_name = Path(file_path).name
+
+    for n in _SUBSET:
+        if file_name in n: 
+            return idx, None, None, None, Path(file_path).name
 
     rf_model = None
     if rf_model_path is not None:

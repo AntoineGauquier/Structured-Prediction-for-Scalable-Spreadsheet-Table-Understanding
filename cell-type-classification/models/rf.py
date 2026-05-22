@@ -18,7 +18,7 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import KFold
 
-from .pipeline import load_and_split_dataset, _load_manifest
+from .pipeline import load_and_split_dataset
 
 # ---------------------------------------------------------------------------
 # Fixed experimental constants
@@ -71,7 +71,7 @@ def _make_folds(dataset_csv):
     """
     Shuffle the manifest with seed=2112 then split into K folds.
     """
-    df = _load_manifest(dataset_csv)
+    df = pd.read_csv(dataset_csv)
     df_shuffled = df.sample(frac=1, random_state=SEED).reset_index(drop=True)
     kf = KFold(n_splits=K, shuffle=False)   # shuffle already done above
     return [
@@ -545,7 +545,7 @@ def cmd_infer(args):
             print(f"  [SKIP] {val_manifest_path} not found")
             continue
 
-        val_df = _load_manifest(val_manifest_path)
+        val_df = pd.read_csv(val_manifest_path)
         empty_train_df  = pd.DataFrame(columns=val_df.columns)
 
         # Load val features (timed)
