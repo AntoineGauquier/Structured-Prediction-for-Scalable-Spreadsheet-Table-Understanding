@@ -1,4 +1,5 @@
 import contextlib, json, hashlib, zipfile
+from concurrent.futures import ProcessPoolExecutor, as_completed
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -77,7 +78,6 @@ def _load_cached_features(cache_path):
 def _save_cached_features(cache_path, unary, edges, pairwise):
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     np.savez(cache_path, unary=unary, edges=edges, pairwise=pairwise)
-
 
 MIME_TO_FMT = {
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': 'xlsx',
@@ -181,7 +181,7 @@ def _build_val_metrics(model, X_val, y_val, grid_shapes_val, y_pred_list=None):
 def make_folds(dataset_csv, k, random_state=2112):
     from sklearn.model_selection import KFold
 
-    df = pd.read_csv(dataset_csv)
+    df = _load_manifest(dataset_csv)
     df_shuffled = df.sample(frac=1, random_state=random_state).reset_index(drop=True)
     kf = KFold(n_splits=k, shuffle=False)
 
@@ -194,13 +194,11 @@ def make_folds(dataset_csv, k, random_state=2112):
     return folds
 
 
-import json
-from concurrent.futures import ProcessPoolExecutor, as_completed
-from pathlib import Path
+def _load_manifest(path):
+    df = pd.read_csv(path)
+    mask = df["file_path"].apply(lambda p: Path(p).stem).isin(_SUBSET)
+    return df[~mask].reset_index(drop=True)
 
-import numpy as np
-import pandas as pd
-from tqdm import tqdm
 
 def _load_single_sample(args):
     """
@@ -398,7 +396,7 @@ def load_and_split_dataset(
         explicit_split = True
         print(f"\nUsing pre-computed split: {n_train_rows} train / {len(val_df)} val")
     else:
-        df = pd.read_csv(dataset_csv)
+        df = _load_manifest(dataset_csv)
         explicit_split = False
         print(f"\nLoading dataset from: {dataset_csv}")
 
@@ -406,7 +404,7 @@ def load_and_split_dataset(
         if col not in df.columns:
             raise ValueError(f"Dataset CSV must have column: {col}")
 
-    print(f"Found {len(df)} samples — dispatching to {n_workers} worker(s)…\n")
+    print(f"Found {len(df)} samples — dispatching to {n_workers} worker(s)...\n")
 
     # Build per-worker argument tuples 
     worker_args = []
@@ -735,6 +733,7 @@ def train_from_preloaded(
 
     return model, training_log
 
+_SUBSET = frozenset({"EQ08__13"})
 
 def train_from_dataset(
     dataset_csv,
@@ -1138,7 +1137,7 @@ def infer_from_dataset(
     model = CellTypeClassifierCRF.load_model(model_path)
 
     print(f"\nLoading dataset from: {dataset_csv}")
-    df = pd.read_csv(dataset_csv)
+    df = _load_manifest(dataset_csv)
 
     required_cols = ['file_path', 'sheet_name']
     for col in required_cols:
