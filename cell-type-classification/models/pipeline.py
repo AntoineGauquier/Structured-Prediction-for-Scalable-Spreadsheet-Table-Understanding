@@ -216,7 +216,7 @@ def _load_single_sample(args):
     file_name = Path(file_path).name
 
     for n in _SUBSET:
-        if file_name in n: 
+        if n in file_name: 
             return idx, None, None, None, Path(file_path).name
 
     rf_model = None
