@@ -226,7 +226,7 @@ def cmd_train(args):
         )
         t_load = time() - t0
         fold_load_times.append(t_load)
-        print(f"  [TIMING] (a) loading + feature extraction: {t_load:.2f}s")
+        print(f"  [TIMING] loading + feature extraction: {t_load:.2f}s")
         print(f"  train files: {len(dataset['X_train'])}  "
               f"val files: {len(dataset['X_val'] or [])}")
 
@@ -264,7 +264,7 @@ def cmd_train(args):
 
         t_train = time() - t0
         fold_train_times.append(t_train)
-        print(f"  [TIMING] (b) CRF training: {t_train:.2f}s")
+        print(f"  [TIMING] CRF training: {t_train:.2f}s")
 
         #  Model persistence
         if not args.save_fold_models:
@@ -381,7 +381,7 @@ def cmd_infer(args):
         )
         t_load = time() - t0
         fold_load_times.append(t_load)
-        print(f"  [TIMING] (a) loading + feature extraction: {t_load:.2f}s")
+        print(f"  [TIMING] loading + feature extraction: {t_load:.2f}s")
 
         X_val_list = dataset.get("X_val") or []
         y_val_list = dataset.get("y_val") or []
@@ -408,7 +408,7 @@ def cmd_infer(args):
                                                    n_jobs=args.n_jobs)
         t_infer = time() - t0
         fold_infer_times.append(t_infer)
-        print(f"  [TIMING] (b) CRF inference: {t_infer:.2f}s")
+        print(f"  [TIMING] CRF inference: {t_infer:.2f}s")
 
         # Metrics (not timed)
         metrics = _build_val_metrics(
@@ -452,7 +452,7 @@ def cmd_infer(args):
     print(f"\n{'='*70}")
     print(f"INFERENCE TIMING SUMMARY  model=CRF-Linear  k={K}")
     print(f"{'='*70}")
-    print(f"  {'Fold':>6}  {'(a) load+extract':>18}  {'(b) inference':>14}")
+    print(f"  {'Fold':>6}  {'load+extract':>18}  {'inference':>14}")
     for i, (tl, ti) in enumerate(zip(fold_load_times, fold_infer_times), 1):
         print(f"  {i:>6}  {tl:>18.2f}s  {ti:>14.2f}s")
     if fold_load_times:
@@ -512,8 +512,8 @@ def _build_parser():
         description=(
             "5-fold CV.\n\n"
             "Per-fold timing:\n"
-            "  (a) loading + feature extraction  (parallel, all CPU cores)\n"
-            "  (b) CRF training\n\n"
+            "  loading + feature extraction  (parallel, all CPU cores)\n"
+            "  CRF training\n\n"
             "CRF hyperparameters are set via the flags below; defaults are the\n"
             "paper values.  Loss weighting and EMPTY constraints are ON by\n"
             "default (paper configuration) and can be disabled for ablations.\n\n"
@@ -614,8 +614,8 @@ def _build_parser():
             "Fold-by-fold inference.\n\n"
             "Requires a prior train run with --save-fold-models.\n\n"
             "Per-fold timing:\n"
-            "  (a) loading + feature extraction  (parallel, all CPU cores)\n"
-            "  (b) CRF predict\n\n"
+            "  loading + feature extraction  (parallel, all CPU cores)\n"
+            "  CRF predict\n\n"
             "Outputs: output/fold_NN/predicted_grids/<UUID>.npz\n"
             "         output/fold_NN/predicted_grids/manifest.json\n"
             "         output/inference_timing.json"

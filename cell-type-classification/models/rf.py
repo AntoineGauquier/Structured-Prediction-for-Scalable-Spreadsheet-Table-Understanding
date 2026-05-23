@@ -474,7 +474,7 @@ def cmd_train(args):
     print(f"\n{'='*70}")
     print(f"TIMING SUMMARY  variant={args.variant}  k={K}")
     print(f"{'='*70}")
-    print(f"  {'Fold':>6}  {'(a) load+extract':>18}  {'(b) training':>14}")
+    print(f"  {'Fold':>6}  {'load+extract':>18}  {'training':>14}")
     for i, (tl, tt) in enumerate(zip(fold_load_times, fold_train_times), 1):
         print(f"  {i:>6}  {tl:>18.2f}s  {tt:>14.2f}s")
     print(f"  {'Total':>6}  {sum(fold_load_times):>18.2f}s  {sum(fold_train_times):>14.2f}s")
@@ -636,7 +636,7 @@ def cmd_infer(args):
     print(f"\n{'='*70}")
     print(f"INFERENCE TIMING SUMMARY  variant={args.variant}  k={K}")
     print(f"{'='*70}")
-    print(f"  {'Fold':>6}  {'(a) load+extract':>18}  {'(b) inference':>14}")
+    print(f"  {'Fold':>6}  {'load+extract':>18}  {'inference':>14}")
     for i, (tl, ti) in enumerate(zip(fold_load_times, fold_infer_times), 1):
         print(f"  {i:>6}  {tl:>18.2f}s  {ti:>14.2f}s")
     if fold_load_times:
@@ -700,8 +700,8 @@ def _build_parser():
         description=(
             "5-fold CV.\n\n"
             "Per-fold timing:\n"
-            "  (a) loading + feature extraction  (parallel, all CPU cores)\n"
-            "  (b) RandomForest training\n\n"
+            "  loading + feature extraction  (parallel, all CPU cores)\n"
+            "  RandomForest training\n\n"
             "Outputs per fold: fold_NN/log.json, fold_NN/train_manifest.csv,\n"
             "                  fold_NN/val_manifest.csv, [fold_NN/model.joblib]\n"
             "Global output:    cv_summary_<variant>_k5_seed2112.json"
@@ -724,8 +724,8 @@ def _build_parser():
             "Fold-by-fold inference.\n\n"
             "Requires a prior train run with --save-fold-models.\n\n"
             "Per-fold timing:\n"
-            "  (a) loading + feature extraction  (parallel, all CPU cores)\n"
-            "  (b) clf.predict only\n\n"
+            "  loading + feature extraction  (parallel, all CPU cores)\n"
+            "  clf.predict only\n\n"
             "Outputs: output/fold_NN/predicted_grids/<UUID>.npz\n"
             "         output/fold_NN/predicted_grids/manifest.json\n"
             "         output/inference_timing.json"
