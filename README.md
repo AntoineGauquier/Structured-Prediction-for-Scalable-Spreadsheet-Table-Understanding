@@ -229,7 +229,7 @@ docker run --rm \
         --dataset /data/dataset/manifest.csv \
         --output  /data/results/rf_crf \
         --save-fold-models \
-        --C 10 --batch-size 32 \
+        --C 10 --batch-size 128 \
         --feature-cache /data/results/feature_cache"
 
 # Inference
@@ -255,7 +255,7 @@ docker run --rm \
         --dataset /data/dataset/manifest.csv \
         --output  /data/results/lgbm_crf \
         --save-fold-models \
-        --C 10 --batch-size 32 \
+        --C 10 --batch-size 128 \
         --feature-cache /data/results/feature_cache"
 
 # Inference
