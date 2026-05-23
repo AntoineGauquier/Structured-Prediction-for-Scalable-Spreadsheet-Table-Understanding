@@ -294,7 +294,7 @@ docker run --rm \
     -v $(pwd)/table-detection:/data/table_detection \
     ctc-baselines \
     bash -c "cd /data/dataset && python /data/table_detection/td.py oracle \
-        /data/results/rf_crf \
+        /data/results/rf-koci \
         --k 5 \
         --cache-dir /data/results/feature_cache \
         --output    /data/results/td_oracle"
