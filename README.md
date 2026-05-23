@@ -300,9 +300,9 @@ docker run --rm \
         --output    /data/results/td_oracle"
 ```
 
-### TD(CRF-RF)
+### TD(RF-Koci)
 
-Run CRF-RF inference first (see `rf_crf infer` above), then:
+Run RF-Koci inference first (see `rf infer` above, after training with `--variant rf-koci`), then:
 
 ```bash
 docker run --rm \
@@ -311,12 +311,12 @@ docker run --rm \
     -v $(pwd)/table-detection:/data/table_detection \
     ctc-baselines \
     bash -c "cd /data/dataset && python /data/table_detection/td.py predicted-grids \
-        /data/results/rf_crf \
+        /data/results/rf-koci \
         --k 5 \
-        --grids-dir /data/results/rf_crf_grids \
+        --grids-dir /data/results/rf-koci_grids \
         --grids-subdir predicted_grids \
         --cache-dir /data/results/feature_cache \
-        --output /data/results/td_rf_crf"
+        --output /data/results/td_rf-koci"
 ```
 
 ### TD(CRF-LightGBM)
@@ -421,7 +421,7 @@ Sample command combining all four methods produced in this repository:
 
 ```bash
 python table-detection/plot_generator.py \
-    --results-dirs results/td_oracle results/td_rf_crf results/td_lgbm_crf results/sllm_parsed \
+    --results-dirs results/td_oracle results/td_rf-koci results/td_lgbm_crf results/sllm_parsed \
     --method-names "TD(Oracle)" "TD(CRF-RF)" "TD(CRF-LightGBM)" "SpreadsheetLLM(Mistral-7B)" \
     --matching-modes table table table table \
     --manifest dataset/manifest.csv \
