@@ -45,7 +45,8 @@ RUN pip install --upgrade pip setuptools wheel \
         ezodf \
         python-dateutil \
         tqdm \
-    && pip install cython
+    && pip install cython \
+    && pip install pyqpbo
 
 # ---------- Build & install pystruct (with AD3) ----------
 RUN pip install --no-build-isolation --force-reinstall . \
