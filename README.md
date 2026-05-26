@@ -435,7 +435,7 @@ python table-detection/plot_generator.py \
 
 ## Extended version
 
-The extended version of the paper (`extended_version.pdf`) includes:
+The extended version of the paper [`extended_version.pdf`](extended_version.pdf) includes:
 
 - A detailed description of all 65 unary features.
 - A hyperparameter table for TD algorithms (notation, value, stage(s), description).
