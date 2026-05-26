@@ -433,6 +433,12 @@ python table-detection/plot_generator.py \
 
 ---
 
-## Extended paper
+## Extended version
 
-The extended version of the paper (`extended_version.pdf`) includes TBD.
+The extended version of the paper (`extended_version.pdf`) includes:
+
+- A detailed description of all 65 unary features.
+- A hyperparameter table for TD algorithms (notation, value, stage(s), description).
+- A breakdown of sheet distribution across sources in StatSheets.
+- Per-system descriptions of all CTC and TD baselines, with selected hyperparameters and implementation details to support reproducibility.
+
