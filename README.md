@@ -116,7 +116,7 @@ Fine-tuning and inference require a CUDA-capable GPU and Python ≥ 3.10. Instal
 pip install -r table-detection/spreadsheet_llm/requirements.txt
 ```
 
-### Plotting 
+### Plotting
 
 ```bash
 pip install -r table-detection/requirements.txt
@@ -432,13 +432,3 @@ python table-detection/plot_generator.py \
 ```
 
 ---
-
-## Extended version
-
-The extended version of the paper [`extended_version.pdf`](extended_version.pdf) includes:
-
-- A detailed description of all 65 unary features.
-- A hyperparameter table for TD algorithms (notation, value, stage(s), description).
-- A breakdown of sheet distribution across sources in StatSheets.
-- Per-system descriptions of all CTC and TD baselines, with selected hyperparameters and implementation details to support reproducibility.
-
