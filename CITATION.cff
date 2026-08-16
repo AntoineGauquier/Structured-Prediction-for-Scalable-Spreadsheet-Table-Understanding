@@ -1,0 +1,55 @@
+cff-version: 1.2.0
+title: "Structured Prediction for Scalable Spreadsheet Table Understanding: From Cell Types to Table Ranges"
+message: >-
+  If you use this software or the StatSheets dataset in academic work, please cite the CIKM 2026
+  paper referenced below.
+type: software
+authors:
+  - family-names: Gauquier
+    given-names: Antoine
+    orcid: "https://orcid.org/0009-0005-9573-6364"
+    affiliation: "DI ENS, ENS-PSL, CNRS, Inria, Paris, France"
+    website: "https://antoinegauquier.github.io/"
+  - family-names: Manolescu
+    given-names: Ioana
+    orcid: "https://orcid.org/0000-0002-0425-2462"
+    affiliation: "Inria, Institut Polytechnique de Paris, Palaiseau  , France"
+    website: "https://pages.saclay.inria.fr/ioana.manolescu/"
+  - family-names: Senellart
+    given-names: Pierre
+    orcid: "https://orcid.org/0000-0002-7909-5369"
+    affiliation: "DI ENS, ENS-PSL, CNRS, Inria, Paris, France"
+    website: "https://pierre.senellart.com"
+repository-code: "https://github.com/AntoineGauquier/Structured-Prediction-for-Scalable-Spreadsheet-Table-Understanding"
+license: MIT
+version: "1.0.0"
+date-released: "2026-08-16"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.XXXXXXX"
+    description: "Concept DOI for all versions of this repository (Zenodo)"
+keywords:
+  - spreadsheets
+  - table understanding
+  - structured prediction
+  - cell-type classification
+  - table detection
+preferred-citation:
+  type: conference-paper
+  title: "Structured Prediction for Scalable Spreadsheet Table Understanding: From Cell Types to Table Ranges"
+  authors:
+  - family-names: Gauquier
+    given-names: Antoine
+    orcid: "https://orcid.org/0009-0005-9573-6364"
+  - family-names: Manolescu
+    given-names: Ioana
+    orcid: "https://orcid.org/0000-0002-0425-2462"
+  - family-names: Senellart
+    given-names: Pierre
+    orcid: "https://orcid.org/0000-0002-7909-5369"
+  collection-title: "Proc. 35th ACM International Conference on Information and Knowledge Management (CIKM)"
+  year: 2026
+  month: 11
+  location:
+    name: "Rome, Italy"
+  url: "https://doi.org/10.1145/3799682.3840907"
