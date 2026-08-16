@@ -75,6 +75,7 @@ The manifest is a CSV file (one row per annotated sheet) with the following colu
 | `mime_type` | MIME type of the spreadsheet file (e.g. `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`) |
 | `labels_path` | Relative path to the corresponding annotation file within `dataset/` |
 | `uuid` | Unique identifier for this sheet, matching the UUID in the annotation filename |
+| `url` | Source URL from which the original spreadsheet file was downloaded |
 
 ### Annotation format
 
