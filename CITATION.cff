@@ -1,8 +1,24 @@
 cff-version: 1.2.0
-title: "Structured Prediction for Scalable Spreadsheet Table Understanding: From Cell Types to Table Ranges"
+title: "StatSheets: dataset and reproducibility kit for spreadsheet table understanding"
 message: >-
   If you use this software or the StatSheets dataset in academic work, please cite the CIKM 2026
   paper referenced below.
+abstract: >-
+  Code and dataset accompanying the CIKM 2026 paper "Structured Prediction for
+  Scalable Spreadsheet Table Understanding: From Cell Types to Table Ranges".
+  Includes the StatSheets benchmark – 737 manually annotated sheets from 14
+  public statistical organizations, in six languages and five file formats, with
+  complete cell-level cell-type annotations and 818 annotated table ranges –
+  together with the cell-type classification and table detection pipelines and
+  the scripts needed to reproduce all experiments.
+
+  This archive bundles three differently licensed components. The source code
+  (cell-type-classification/, table-detection/) is released under the MIT
+  License. The StatSheets annotations (dataset/annotations/) are released under
+  CC-BY 4.0. The source spreadsheets (dataset/spreadsheets/) remain the property
+  of their original publishers and are subject to their respective terms of use;
+  dataset/manifest.csv records the origin URL of each file. See DATA-LICENSE.md
+  for details.
 type: software
 authors:
   - family-names: Gauquier
@@ -13,7 +29,7 @@ authors:
   - family-names: Manolescu
     given-names: Ioana
     orcid: "https://orcid.org/0000-0002-0425-2462"
-    affiliation: "Inria, Institut Polytechnique de Paris, Palaiseau  , France"
+    affiliation: "Inria, Institut Polytechnique de Paris, Palaiseau, France"
     website: "https://pages.saclay.inria.fr/ioana.manolescu/"
   - family-names: Senellart
     given-names: Pierre
@@ -26,7 +42,7 @@ version: "1.0.0"
 date-released: "2026-08-16"
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.XXXXXXX"
+    value: "10.5281/zenodo.21967189"
     description: "Concept DOI for all versions of this repository (Zenodo)"
 keywords:
   - spreadsheets
